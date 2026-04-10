@@ -804,6 +804,19 @@
           }
         }
       },
+      "NetTopologySuite/2.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Pomelo.EntityFrameworkCore.MySql/9.0.0": {
         "type": "package",
         "dependencies": {
@@ -819,6 +832,29 @@
           "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "Pomelo.EntityFrameworkCore.MySql.NetTopologySuite/9.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "[9.0.0, 9.0.999]",
+          "Microsoft.Extensions.DependencyInjection": "9.0.0",
+          "MySqlConnector": "2.4.0",
+          "NetTopologySuite": "2.5.0",
+          "Pomelo.EntityFrameworkCore.MySql": "9.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.NetTopologySuite.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/netstandard2.0/Pomelo.EntityFrameworkCore.MySql.NetTopologySuite.targets": {}
         }
       },
       "System.CodeDom/6.0.0": {
@@ -2625,6 +2661,22 @@
         "mysqlconnector.nuspec"
       ]
     },
+    "NetTopologySuite/2.6.0": {
+      "sha512": "1B1OTacTd4QtFyBeuIOcThwSSLUdRZU3bSFIwM8vk36XiZlBMi3K36u74e4OqwwHRHUuJC1PhbDx4hyI266X1Q==",
+      "type": "package",
+      "path": "nettopologysuite/2.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/NetTopologySuite.dll",
+        "lib/netstandard2.0/NetTopologySuite.xml",
+        "lib/netstandard2.1/NetTopologySuite.dll",
+        "lib/netstandard2.1/NetTopologySuite.xml",
+        "nettopologysuite.2.6.0.nupkg.sha512",
+        "nettopologysuite.nuspec"
+      ]
+    },
     "Pomelo.EntityFrameworkCore.MySql/9.0.0": {
       "sha512": "cl7S4s6CbJno0LjNxrBHNc2xxmCliR5i40ATPZk/eTywVaAbHCbdc9vbGc3QThvwGjHqrDHT8vY9m1VF/47o0g==",
       "type": "package",
@@ -2638,6 +2690,22 @@
         "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.xml",
         "pomelo.entityframeworkcore.mysql.9.0.0.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
+      ]
+    },
+    "Pomelo.EntityFrameworkCore.MySql.NetTopologySuite/9.0.0": {
+      "sha512": "BzYOeFU1Ho9gpV0nLHt+llNAL813HLzKLCIjpz8JPk3Ehs4xWjKxTTRd7Kt32sgpMEMRuBib40PHGvAHjG8kXw==",
+      "type": "package",
+      "path": "pomelo.entityframeworkcore.mysql.nettopologysuite/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/netstandard2.0/Pomelo.EntityFrameworkCore.MySql.NetTopologySuite.targets",
+        "icon.png",
+        "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.NetTopologySuite.dll",
+        "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.NetTopologySuite.xml",
+        "pomelo.entityframeworkcore.mysql.nettopologysuite.9.0.0.nupkg.sha512",
+        "pomelo.entityframeworkcore.mysql.nettopologysuite.nuspec"
       ]
     },
     "System.CodeDom/6.0.0": {
@@ -2827,7 +2895,9 @@
       "Microsoft.EntityFrameworkCore.Design >= 9.0.0",
       "Microsoft.Extensions.Configuration.EnvironmentVariables >= 10.0.5",
       "Microsoft.Extensions.Configuration.Json >= 10.0.5",
-      "Pomelo.EntityFrameworkCore.MySql >= 9.0.0"
+      "NetTopologySuite >= 2.6.0",
+      "Pomelo.EntityFrameworkCore.MySql >= 9.0.0",
+      "Pomelo.EntityFrameworkCore.MySql.NetTopologySuite >= 9.0.0"
     ]
   },
   "packageFolders": {
@@ -2891,7 +2961,15 @@
             "target": "Package",
             "version": "[10.0.5, )"
           },
+          "NetTopologySuite": {
+            "target": "Package",
+            "version": "[2.6.0, )"
+          },
           "Pomelo.EntityFrameworkCore.MySql": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
+          "Pomelo.EntityFrameworkCore.MySql.NetTopologySuite": {
             "target": "Package",
             "version": "[9.0.0, )"
           }

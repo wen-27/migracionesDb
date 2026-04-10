@@ -83,9 +83,9 @@ public class AppDbContext : DbContext
     public DbSet<BidsEntity> Bids { get; set; }
     public DbSet<ChatMessagesEntity> ChatMessages { get; set; }
     public DbSet<ChatParticipantsEntity> ChatParticipants { get; set; }
-    public DbSet<ChatRoomsEntity> ChatRooms { get; set; }
+    public DbSet<ChatRoomsEntity> ChatRooms { get; set; }*/
     public DbSet<CitiesormunicipalitiesEntity> Citiesormunicipalities { get; set; }
-    public DbSet<CityPricingRulesEntity> CityPricingRules { get; set; }
+   /* public DbSet<CityPricingRulesEntity> CityPricingRules { get; set; }
     public DbSet<CompaniesStatusEntity> CompaniesStatus { get; set; }
     public DbSet<CompanyDocumentsEntity> CompanyDocuments { get; set; }
     public DbSet<CompanyVehiclesEntity> CompanyVehicles { get; set; }

@@ -16,7 +16,9 @@ public class DbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 
         var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
         var connectionString = config.GetConnectionString("DefaultConnection");
-        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString),
+        x => x.UseNetTopologySuite()
+        );
 
         return new AppDbContext(optionsBuilder.Options);
     }

@@ -1,19 +1,25 @@
+using NetTopologySuite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using DerTransporte.Shared.Context;
 using DerTransporte.Shared.Helpers;
 
+
+
 var config = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json")
     .Build();
+    
 
 var connectionString = config.GetConnectionString("DefaultConnection");
 
 var services = new ServiceCollection();
 services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(connectionString, MySqlVersionResolver.Resolve(connectionString)));
+    options.UseMySql(connectionString, MySqlVersionResolver.Resolve(connectionString),
+    x => x.UseNetTopologySuite()
+    ));
 
 var provider = services.BuildServiceProvider();
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "x5yn+jvhj+0=",
+  "dgSpecHash": "yIaCYefW79Y=",
   "success": true,
   "projectFilePath": "/Users/wen/Desktop/DerTransporte2/DerTransporte/DerTransporte.csproj",
   "expectedPackageFiles": [
@@ -38,7 +38,9 @@
     "/Users/wen/.nuget/packages/microsoft.extensions.primitives/10.0.5/microsoft.extensions.primitives.10.0.5.nupkg.sha512",
     "/Users/wen/.nuget/packages/mono.texttemplating/3.0.0/mono.texttemplating.3.0.0.nupkg.sha512",
     "/Users/wen/.nuget/packages/mysqlconnector/2.4.0/mysqlconnector.2.4.0.nupkg.sha512",
+    "/Users/wen/.nuget/packages/nettopologysuite/2.6.0/nettopologysuite.2.6.0.nupkg.sha512",
     "/Users/wen/.nuget/packages/pomelo.entityframeworkcore.mysql/9.0.0/pomelo.entityframeworkcore.mysql.9.0.0.nupkg.sha512",
+    "/Users/wen/.nuget/packages/pomelo.entityframeworkcore.mysql.nettopologysuite/9.0.0/pomelo.entityframeworkcore.mysql.nettopologysuite.9.0.0.nupkg.sha512",
     "/Users/wen/.nuget/packages/system.codedom/6.0.0/system.codedom.6.0.0.nupkg.sha512",
     "/Users/wen/.nuget/packages/system.composition/7.0.0/system.composition.7.0.0.nupkg.sha512",
     "/Users/wen/.nuget/packages/system.composition.attributedmodel/7.0.0/system.composition.attributedmodel.7.0.0.nupkg.sha512",
