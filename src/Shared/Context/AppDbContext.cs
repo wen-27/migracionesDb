@@ -81,8 +81,9 @@ public class AppDbContext : DbContext
     public DbSet<AuditLogEntity> AuditLog { get; set; }
     */
     public DbSet<AuthCredentialsEntity> AuthCredentials { get; set; }
-    /*
+    
     public DbSet<AuthSessionsEntity> AuthSessions { get; set; }
+    /*
     public DbSet<BidsEntity> Bids { get; set; }
     public DbSet<ChatMessagesEntity> ChatMessages { get; set; }
     public DbSet<ChatParticipantsEntity> ChatParticipants { get; set; }
@@ -91,15 +92,18 @@ public class AppDbContext : DbContext
    /* public DbSet<CityPricingRulesEntity> CityPricingRules { get; set; }
     */
     public DbSet<CompaniesStatusEntity> CompaniesStatus { get; set; }
-    /*
     public DbSet<CompanyDocumentsEntity> CompanyDocuments { get; set; }
+
     public DbSet<CompanyVehiclesEntity> CompanyVehicles { get; set; }
-    */
+    
     public DbSet<CountriesEntity> Countries { get; set; }
     /*
     public DbSet<CreditTransactionsEntity> CreditTransactions { get; set; }
+    */
     public DbSet<CreditWalletEntity> CreditWallet { get; set; }
+    
     public DbSet<CustomersEntity> Customers { get; set; }
+    /*
     public DbSet<DisputesEntity> Disputes { get; set; }
     */
     public DbSet<DisputesStatusEntity> DisputesStatus { get; set; }
@@ -107,12 +111,15 @@ public class AppDbContext : DbContext
     public DbSet<DocumentCategoryEntity> DocumentCategory { get; set; }
     /*
     public DbSet<DocumentsCustomersEntity> DocumentsCustomers { get; set; }
-    public DbSet<DocumentsDriversEntity> DocumentsDrivers { get; set; }
     */
+    public DbSet<DocumentsDriversEntity> DocumentsDrivers { get; set; }
+    
     public DbSet<DocumentsStatusEntity> DocumentsStatus { get; set; }
     /*
     public DbSet<DocumentsVehiclesEntity> DocumentsVehicles { get; set; }
+    */
     public DbSet<DriversEntity> Drivers { get; set; }
+    /*
     public DbSet<DriversVehiclesEntity> DriversVehicles { get; set; }
     public DbSet<LoadDetailsEntity> LoadDetails { get; set; }
     public DbSet<LoadImagesEntity> LoadImages { get; set; }
@@ -131,12 +138,12 @@ public class AppDbContext : DbContext
     /*
     public DbSet<PaymentsEntity> Payments { get; set; }
     public DbSet<PersonPlansEntity> PersonPlans { get; set; }
+    */
     public DbSet<PersonRolesEntity> PersonRoles { get; set; }
-    */
+
     public DbSet<PersonStatusEntity> PersonStatus { get; set; }
-    /*
+    
     public DbSet<PersonTransportEntity> PersonTransport { get; set; }
-    */
     public DbSet<PersonsEntity> Persons { get; set; }
     public DbSet<PlansEntity> Plans { get; set; }
     /*

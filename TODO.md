@@ -8,21 +8,17 @@ Estas no dependen de nadie, puedes hacerlas en cualquier orden entre ellas:
 
 
 
-auth_sessions          → depende de persons
-credit_wallet          → depende de persons, transport_companies
+
 
 ## Bloque 3 — Perfiles
 .
-drivers                → depende de persons
-customers              → depende de persons
-person_roles           → depende de persons, roles
-person_transport       → depende de persons, transport_companies, relation_type
-company_vehicles       → depende de transport_companies, vehicles
-company_documents      → depende de transport_companies, type_documents, documents_status
+
+
+
 
 ## Bloque 4 — Documentos
 .
-documents_drivers      → depende de drivers, type_documents, documents_status
+
 documents_vehicles     → depende de vehicles, type_documents, documents_status
 documents_customers    → depende de customers, type_documents, documents_status
 drivers_vehicles       → depende de drivers, vehicles
