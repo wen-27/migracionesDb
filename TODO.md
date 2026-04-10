@@ -6,7 +6,6 @@ Estas no dependen de nadie, puedes hacerlas en cualquier orden entre ellas:
 
 ## Bloque 2 — Entidades núcleo
 
-persons                → depende de person_status, citiesormunicipalities, type_documents
 transport_companies    → depende de citiesormunicipalities, companies_status
 vehicles               → depende de type_vehicles, vehicules_status
 auth_credentials       → depende de persons

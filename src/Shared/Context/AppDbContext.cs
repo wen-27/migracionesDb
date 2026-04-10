@@ -134,8 +134,8 @@ public class AppDbContext : DbContext
     public DbSet<PersonStatusEntity> PersonStatus { get; set; }
     /*
     public DbSet<PersonTransportEntity> PersonTransport { get; set; }
-    public DbSet<PersonsEntity> Persons { get; set; }
     */
+    public DbSet<PersonsEntity> Persons { get; set; }
     public DbSet<PlansEntity> Plans { get; set; }
     /*
     public DbSet<PriceHistoryEntity> PriceHistory { get; set; }
