@@ -2,20 +2,7 @@
 Estas no dependen de nadie, puedes hacerlas en cualquier orden entre ellas:
 
 .
-relation_type
-payment_statuses
-payment_providers
-transaction_types
-status_bids
-status_chat
-notification_type
-message_type
-subscription_type
-subscription_status
-reason_disputes
-disputes_status
-assignment_role
-plans
+
 
 ## Bloque 2 — Entidades núcleo
 

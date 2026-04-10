@@ -75,8 +75,9 @@ public class AppDbContext : DbContext
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
-/*
+
     public DbSet<AssignmentRoleEntity> AssignmentRole { get; set; }
+    /*
     public DbSet<AuditLogEntity> AuditLog { get; set; }
     public DbSet<AuthCredentialsEntity> AuthCredentials { get; set; }
     public DbSet<AuthSessionsEntity> AuthSessions { get; set; }
@@ -98,8 +99,9 @@ public class AppDbContext : DbContext
     public DbSet<CreditWalletEntity> CreditWallet { get; set; }
     public DbSet<CustomersEntity> Customers { get; set; }
     public DbSet<DisputesEntity> Disputes { get; set; }
-    public DbSet<DisputesStatusEntity> DisputesStatus { get; set; }
     */
+    public DbSet<DisputesStatusEntity> DisputesStatus { get; set; }
+    
     public DbSet<DocumentCategoryEntity> DocumentCategory { get; set; }
     /*
     public DbSet<DocumentsCustomersEntity> DocumentsCustomers { get; set; }
@@ -114,11 +116,17 @@ public class AppDbContext : DbContext
     public DbSet<LoadImagesEntity> LoadImages { get; set; }
     public DbSet<LoadStatusHistoryEntity> LoadStatusHistory { get; set; }
     public DbSet<LoadsEntity> Loads { get; set; }
+    */
     public DbSet<MessageTypeEntity> MessageType { get; set; }
+    
     public DbSet<NotificationTypeEntity> NotificationType { get; set; }
+    /*
     public DbSet<NotificationsEntity> Notifications { get; set; }
+    */
     public DbSet<PaymentProvidersEntity> PaymentProviders { get; set; }
+    
     public DbSet<PaymentStatusesEntity> PaymentStatuses { get; set; }
+    /*
     public DbSet<PaymentsEntity> Payments { get; set; }
     public DbSet<PersonPlansEntity> PersonPlans { get; set; }
     public DbSet<PersonRolesEntity> PersonRoles { get; set; }
@@ -127,23 +135,32 @@ public class AppDbContext : DbContext
     /*
     public DbSet<PersonTransportEntity> PersonTransport { get; set; }
     public DbSet<PersonsEntity> Persons { get; set; }
+    */
     public DbSet<PlansEntity> Plans { get; set; }
+    /*
     public DbSet<PriceHistoryEntity> PriceHistory { get; set; }
     public DbSet<RatingsEntity> Ratings { get; set; }
-    public DbSet<ReasonDisputesEntity> ReasonDisputes { get; set; }
     */
+    public DbSet<ReasonDisputesEntity> ReasonDisputes { get; set; }
+    
     public DbSet<RelationTypeEntity> RelationType { get; set; }
     /*
     public DbSet<ReturnLoadSuggestionsEntity> ReturnLoadSuggestions { get; set; }
     */
     public DbSet<RolesEntity> Roles { get; set; }
     public DbSet<StateorregionsEntity> Stateorregions { get; set; }
-    /*public DbSet<StatusBidsEntity> StatusBids { get; set; }
+    public DbSet<StatusBidsEntity> StatusBids { get; set; }
+    
     public DbSet<StatusChatEntity> StatusChat { get; set; }
+    
     public DbSet<SubscriptionStatusEntity> SubscriptionStatus { get; set; }
+    
     public DbSet<SubscriptionTypeEntity> SubscriptionType { get; set; }
+    /*
     public DbSet<SubscriptionsEntity> Subscriptions { get; set; }
+    */
     public DbSet<TransactionTypesEntity> TransactionTypes { get; set; }
+    /*
     public DbSet<TransportCompaniesEntity> TransportCompanies { get; set; }
     public DbSet<TravelScaleEntity> TravelScale { get; set; }
     public DbSet<TripAssignmentsEntity> TripAssignments { get; set; }

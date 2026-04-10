@@ -23,6 +23,30 @@ namespace DerTransporte.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("DerTransporte.Modules.AssignmentRole.Infrastructure.Entity.AssignmentRoleEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("assignment_role", (string)null);
+                });
+
             modelBuilder.Entity("DerTransporte.Modules.Citiesormunicipalities.Infrastructure.Entity.CitiesormunicipalitiesEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -107,6 +131,30 @@ namespace DerTransporte.Migrations
                     b.ToTable("Countries");
                 });
 
+            modelBuilder.Entity("DerTransporte.Modules.DisputesStatus.Infrastructure.Entity.DisputesStatusEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("disputes_status", (string)null);
+                });
+
             modelBuilder.Entity("DerTransporte.Modules.DocumentCategory.Infrastructure.Entity.DocumentCategoryEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -155,6 +203,94 @@ namespace DerTransporte.Migrations
                     b.ToTable("documents_status", (string)null);
                 });
 
+            modelBuilder.Entity("DerTransporte.Modules.MessageType.Infrastructure.Entity.MessageTypeEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("message_type", (string)null);
+                });
+
+            modelBuilder.Entity("DerTransporte.Modules.NotificationType.Infrastructure.Entity.NotificationTypeEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("notification_type", (string)null);
+                });
+
+            modelBuilder.Entity("DerTransporte.Modules.PaymentProviders.Infrastructure.Entity.PaymentProvidersEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("payment_providers", (string)null);
+                });
+
+            modelBuilder.Entity("DerTransporte.Modules.PaymentStatuses.Infrastructure.Entity.PaymentStatusesEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("payment_statuses", (string)null);
+                });
+
             modelBuilder.Entity("DerTransporte.Modules.PersonStatus.Infrastructure.Entity.PersonStatusEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -177,6 +313,60 @@ namespace DerTransporte.Migrations
                         .IsUnique();
 
                     b.ToTable("person_status", (string)null);
+                });
+
+            modelBuilder.Entity("DerTransporte.Modules.Plans.Infrastructure.Entity.PlansEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<decimal>("CreditAmount")
+                        .HasColumnType("decimal(19,4)");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint(1)")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(19,4)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("plans", (string)null);
+                });
+
+            modelBuilder.Entity("DerTransporte.Modules.ReasonDisputes.Infrastructure.Entity.ReasonDisputesEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("reason_disputes", (string)null);
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.RelationType.Infrastructure.Entity.RelationTypeEntity", b =>
@@ -254,6 +444,121 @@ namespace DerTransporte.Migrations
                     b.HasIndex("CountryId");
 
                     b.ToTable("Stateorregions");
+                });
+
+            modelBuilder.Entity("DerTransporte.Modules.StatusBids.Infrastructure.Entity.StatusBidsEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("status_bids", (string)null);
+                });
+
+            modelBuilder.Entity("DerTransporte.Modules.StatusChat.Infrastructure.Entity.StatusChatEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("status_chat", (string)null);
+                });
+
+            modelBuilder.Entity("DerTransporte.Modules.SubscriptionStatus.Infrastructure.Entity.SubscriptionStatusEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("subscription_status", (string)null);
+                });
+
+            modelBuilder.Entity("DerTransporte.Modules.SubscriptionType.Infrastructure.Entity.SubscriptionTypeEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("subscription_type", (string)null);
+                });
+
+            modelBuilder.Entity("DerTransporte.Modules.TransactionTypes.Infrastructure.Entity.TransactionTypesEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("transaction_types", (string)null);
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.TypeDocuments.Infrastructure.Entity.TypeDocumentsEntity", b =>
