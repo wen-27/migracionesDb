@@ -79,7 +79,9 @@ public class AppDbContext : DbContext
     public DbSet<AssignmentRoleEntity> AssignmentRole { get; set; }
     /*
     public DbSet<AuditLogEntity> AuditLog { get; set; }
+    */
     public DbSet<AuthCredentialsEntity> AuthCredentials { get; set; }
+    /*
     public DbSet<AuthSessionsEntity> AuthSessions { get; set; }
     public DbSet<BidsEntity> Bids { get; set; }
     public DbSet<ChatMessagesEntity> ChatMessages { get; set; }
@@ -160,8 +162,9 @@ public class AppDbContext : DbContext
     public DbSet<SubscriptionsEntity> Subscriptions { get; set; }
     */
     public DbSet<TransactionTypesEntity> TransactionTypes { get; set; }
-    /*
+    
     public DbSet<TransportCompaniesEntity> TransportCompanies { get; set; }
+    /*
     public DbSet<TravelScaleEntity> TravelScale { get; set; }
     public DbSet<TripAssignmentsEntity> TripAssignments { get; set; }
     public DbSet<TripStatusHistoryEntity> TripStatusHistory { get; set; }
@@ -171,9 +174,9 @@ public class AppDbContext : DbContext
     public DbSet<TypeLoadEntity> TypeLoad { get; set; }
     
     public DbSet<TypeVehiclesEntity> TypeVehicles { get; set; }
-    /*
+    
     public DbSet<VehiclesEntity> Vehicles { get; set; }
-    */
+    
     public DbSet<VehiculesStatusEntity> VehiculesStatus { get; set; }
     
 }

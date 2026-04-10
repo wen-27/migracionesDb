@@ -4,6 +4,7 @@ using DerTransporte.Shared.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace DerTransporte.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260410220647_Vehicles")]
+    partial class Vehicles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,49 +48,6 @@ namespace DerTransporte.Migrations
                         .IsUnique();
 
                     b.ToTable("assignment_role", (string)null);
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.AuthCredentials.Infrastructure.Entity.AuthCredentialsEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("varchar(150)");
-
-                    b.Property<int>("FailedAttempts")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
-
-                    b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
-                        .HasDefaultValue(true);
-
-                    b.Property<DateTime?>("LastLogin")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime?>("LockUntil")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("PersonId")
-                        .HasColumnType("char(36)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("auth_credentials", (string)null);
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.Citiesormunicipalities.Infrastructure.Entity.CitiesormunicipalitiesEntity", b =>
@@ -867,17 +827,6 @@ namespace DerTransporte.Migrations
                         .IsUnique();
 
                     b.ToTable("vehicules_status", (string)null);
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.AuthCredentials.Infrastructure.Entity.AuthCredentialsEntity", b =>
-                {
-                    b.HasOne("DerTransporte.Modules.Persons.Infrastructure.Entity.PersonsEntity", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Person");
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.Citiesormunicipalities.Infrastructure.Entity.CitiesormunicipalitiesEntity", b =>

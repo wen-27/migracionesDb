@@ -4,6 +4,7 @@ using DerTransporte.Shared.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace DerTransporte.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260410212200_TransportCompanies")]
+    partial class TransportCompanies
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,49 +48,6 @@ namespace DerTransporte.Migrations
                         .IsUnique();
 
                     b.ToTable("assignment_role", (string)null);
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.AuthCredentials.Infrastructure.Entity.AuthCredentialsEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("varchar(150)");
-
-                    b.Property<int>("FailedAttempts")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
-
-                    b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
-                        .HasDefaultValue(true);
-
-                    b.Property<DateTime?>("LastLogin")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime?>("LockUntil")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("PersonId")
-                        .HasColumnType("char(36)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("auth_credentials", (string)null);
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.Citiesormunicipalities.Infrastructure.Entity.CitiesormunicipalitiesEntity", b =>
@@ -784,67 +744,6 @@ namespace DerTransporte.Migrations
                     b.ToTable("type_vehicles", (string)null);
                 });
 
-            modelBuilder.Entity("DerTransporte.Modules.Vehicles.Infrastructure.Entity.VehiclesEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Brand")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("ChassisNumber")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
-
-                    b.Property<string>("Model")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<Guid>("OwnerId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Plate")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<Guid>("StatusId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("TypeVehicleId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OwnerId");
-
-                    b.HasIndex("Plate")
-                        .IsUnique();
-
-                    b.HasIndex("StatusId");
-
-                    b.HasIndex("TypeVehicleId");
-
-                    b.ToTable("vehicles", (string)null);
-                });
-
             modelBuilder.Entity("DerTransporte.Modules.VehiculesStatus.Infrastructure.Entity.VehiculesStatusEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -867,17 +766,6 @@ namespace DerTransporte.Migrations
                         .IsUnique();
 
                     b.ToTable("vehicules_status", (string)null);
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.AuthCredentials.Infrastructure.Entity.AuthCredentialsEntity", b =>
-                {
-                    b.HasOne("DerTransporte.Modules.Persons.Infrastructure.Entity.PersonsEntity", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Person");
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.Citiesormunicipalities.Infrastructure.Entity.CitiesormunicipalitiesEntity", b =>
@@ -956,33 +844,6 @@ namespace DerTransporte.Migrations
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.Vehicles.Infrastructure.Entity.VehiclesEntity", b =>
-                {
-                    b.HasOne("DerTransporte.Modules.Persons.Infrastructure.Entity.PersonsEntity", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DerTransporte.Modules.VehiculesStatus.Infrastructure.Entity.VehiculesStatusEntity", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DerTransporte.Modules.TypeVehicles.Infrastructure.Entity.TypeVehiclesEntity", "TypeVehicule")
-                        .WithMany()
-                        .HasForeignKey("TypeVehicleId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Owner");
-
-                    b.Navigation("Status");
-
-                    b.Navigation("TypeVehicule");
                 });
 #pragma warning restore 612, 618
         }
