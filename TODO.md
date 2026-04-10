@@ -2,7 +2,6 @@
 Estas no dependen de nadie, puedes hacerlas en cualquier orden entre ellas:
 
 .
-countries
 stateorregions         → depende de countries
 citiesormunicipalities → depende de stateorregions
 type_documents

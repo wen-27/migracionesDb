@@ -119,3 +119,4 @@
 /Users/wen/Desktop/DerTransporte2/DerTransporte/obj/Debug/net10.0/DerTransporte.pdb
 /Users/wen/Desktop/DerTransporte2/DerTransporte/obj/Debug/net10.0/DerTransporte.genruntimeconfig.cache
 /Users/wen/Desktop/DerTransporte2/DerTransporte/obj/Debug/net10.0/ref/DerTransporte.dll
+/Users/wen/Desktop/DerTransporte2/DerTransporte/obj/Debug/net10.0/DerTransporte.sourcelink.json

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DerTransporte")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1782a2c0f4910a323f79e800a4beb98cc5e8bbc3")]
 [assembly: System.Reflection.AssemblyProductAttribute("DerTransporte")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DerTransporte")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
