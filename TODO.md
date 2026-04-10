@@ -2,15 +2,6 @@
 Estas no dependen de nadie, puedes hacerlas en cualquier orden entre ellas:
 
 .
-type_documents
-document_category
-documents_status
-type_vehicles
-vehicules_status
-type_load
-roles
-person_status
-companies_status
 relation_type
 payment_statuses
 payment_providers
