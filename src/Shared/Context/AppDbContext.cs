@@ -109,23 +109,24 @@ public class AppDbContext : DbContext
     public DbSet<DisputesStatusEntity> DisputesStatus { get; set; }
     
     public DbSet<DocumentCategoryEntity> DocumentCategory { get; set; }
-    /*
+    
     public DbSet<DocumentsCustomersEntity> DocumentsCustomers { get; set; }
-    */
+    
     public DbSet<DocumentsDriversEntity> DocumentsDrivers { get; set; }
     
     public DbSet<DocumentsStatusEntity> DocumentsStatus { get; set; }
-    /*
+    
     public DbSet<DocumentsVehiclesEntity> DocumentsVehicles { get; set; }
-    */
+    
     public DbSet<DriversEntity> Drivers { get; set; }
     /*
     public DbSet<DriversVehiclesEntity> DriversVehicles { get; set; }
     public DbSet<LoadDetailsEntity> LoadDetails { get; set; }
     public DbSet<LoadImagesEntity> LoadImages { get; set; }
     public DbSet<LoadStatusHistoryEntity> LoadStatusHistory { get; set; }
-    public DbSet<LoadsEntity> Loads { get; set; }
     */
+    public DbSet<LoadsEntity> Loads { get; set; }
+    
     public DbSet<MessageTypeEntity> MessageType { get; set; }
     
     public DbSet<NotificationTypeEntity> NotificationType { get; set; }

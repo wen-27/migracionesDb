@@ -4,6 +4,7 @@ using DerTransporte.Shared.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace DerTransporte.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260410234524_DocumentsVehicles")]
+    partial class DocumentsVehicles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -361,40 +364,6 @@ namespace DerTransporte.Migrations
                         .IsUnique();
 
                     b.ToTable("document_category", (string)null);
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.DocumentsCustomers.Infrastructure.Entity.DocumentsCustomersEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("CustomerId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("DocumentNumber")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<Guid>("DocumentStatusId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("FileUrl")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("TypeDocumentId")
-                        .HasColumnType("char(36)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CustomerId");
-
-                    b.HasIndex("DocumentStatusId");
-
-                    b.HasIndex("TypeDocumentId");
-
-                    b.ToTable("documents_customers", (string)null);
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.DocumentsDrivers.Infrastructure.Entity.DocumentsDriversEntity", b =>
@@ -1308,33 +1277,6 @@ namespace DerTransporte.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Person");
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.DocumentsCustomers.Infrastructure.Entity.DocumentsCustomersEntity", b =>
-                {
-                    b.HasOne("DerTransporte.Modules.Customers.Infrastructure.Entity.CustomersEntity", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DerTransporte.Modules.DocumentsStatus.Infrastructure.Entity.DocumentsStatusEntity", "DocumentStatus")
-                        .WithMany()
-                        .HasForeignKey("DocumentStatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DerTransporte.Modules.TypeDocuments.Infrastructure.Entity.TypeDocumentsEntity", "TypeDocument")
-                        .WithMany()
-                        .HasForeignKey("TypeDocumentId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Customer");
-
-                    b.Navigation("DocumentStatus");
-
-                    b.Navigation("TypeDocument");
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.DocumentsDrivers.Infrastructure.Entity.DocumentsDriversEntity", b =>

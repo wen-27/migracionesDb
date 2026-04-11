@@ -19,19 +19,20 @@ Estas no dependen de nadie, puedes hacerlas en cualquier orden entre ellas:
 ## Bloque 4 — Documentos
 .
 
-documents_vehicles     → depende de vehicles, type_documents, documents_status
-documents_customers    → depende de customers, type_documents, documents_status
-drivers_vehicles       → depende de drivers, vehicles
+
+
 
 ## Bloque 5 — Negocio core
 .
-loads                  → depende de customers, type_load, citiesormunicipalities
+
 load_details           → depende de loads
 load_images            → depende de loads
 load_status_history    → depende de loads
 bids                   → depende de loads, drivers, vehicles, status_bids
 trips                  → depende de loads, bids
 travel_scale           → depende de trips, citiesormunicipalities
+
+
 trip_status_history    → depende de trips
 trip_assignments       → depende de trips, persons, assignment_role
 
