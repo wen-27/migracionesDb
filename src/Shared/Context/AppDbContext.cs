@@ -140,8 +140,9 @@ public class AppDbContext : DbContext
     public DbSet<PaymentProvidersEntity> PaymentProviders { get; set; }
     
     public DbSet<PaymentStatusesEntity> PaymentStatuses { get; set; }
-    /*
+    
     public DbSet<PaymentsEntity> Payments { get; set; }
+    /*
     public DbSet<PersonPlansEntity> PersonPlans { get; set; }
     */
     public DbSet<PersonRolesEntity> PersonRoles { get; set; }

@@ -15,7 +15,7 @@ public class PaymentsEntity
     public Guid paymentproviderid { get; set; }
     public PaymentProvidersEntity PaymentProvider { get; set; } = null!;
 
-    public Guid statusid { get; set; }
+    public int statusid { get; set; }
     public PaymentStatusesEntity Status { get; set; } = null!;
 
     public string externalreference { get; set; } = string.Empty;
