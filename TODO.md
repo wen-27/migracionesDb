@@ -25,9 +25,8 @@ Estas no dependen de nadie, puedes hacerlas en cualquier orden entre ellas:
 ## Bloque 5 — Negocio core
 .
 
-load_details           → depende de loads
-load_images            → depende de loads
-load_status_history    → depende de loads
+
+
 bids                   → depende de loads, drivers, vehicles, status_bids
 trips                  → depende de loads, bids
 travel_scale           → depende de trips, citiesormunicipalities

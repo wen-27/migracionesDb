@@ -19,7 +19,6 @@ public class LoadsRepository
             .Include(x => x.TypeLoad)
             .Include(x => x.OriginCity)
             .Include(x => x.DestinationCity)
-            .Include(x => x.Status)
             .ToListAsync();
 
     public async Task<LoadsEntity?> GetByIdAsync(Guid id)
@@ -28,7 +27,6 @@ public class LoadsRepository
             .Include(x => x.TypeLoad)
             .Include(x => x.OriginCity)
             .Include(x => x.DestinationCity)
-            .Include(x => x.Status)
             .FirstOrDefaultAsync(x => x.Id == id);
 
     public async Task AddAsync(LoadsEntity entity)

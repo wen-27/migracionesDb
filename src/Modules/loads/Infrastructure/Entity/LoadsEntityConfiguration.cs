@@ -22,11 +22,11 @@ public sealed class LoadsEntityConfiguration : IEntityTypeConfiguration<LoadsEnt
 
         builder.Property(x => x.OriginCoords)
                .IsRequired()
-               .HasColumnType("GEOGRAPHY(Point, 4326)");
+               .HasColumnType("TEXT");
 
         builder.Property(x => x.DestinationCoords)
                .IsRequired()
-               .HasColumnType("GEOGRAPHY(Point, 4326)");
+               .HasColumnType("TEXT");
 
         builder.Property(x => x.WeightTons)
                .IsRequired()
@@ -66,9 +66,7 @@ public sealed class LoadsEntityConfiguration : IEntityTypeConfiguration<LoadsEnt
                .HasForeignKey(x => x.DestinationCityId)
                .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasOne(x => x.Status)
-               .WithMany()
-               .HasForeignKey(x => x.StatusId)
-               .OnDelete(DeleteBehavior.Restrict);
+        builder.Property(x => x.StatusId)
+               .IsRequired();
     }
 }

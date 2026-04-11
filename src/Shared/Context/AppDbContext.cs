@@ -65,6 +65,8 @@ using DerTransporte.Modules.Vehicles.Infrastructure.Entity;
 using DerTransporte.Modules.VehiculesStatus.Infrastructure.Entity;
 using Microsoft.EntityFrameworkCore;
 
+
+
 namespace DerTransporte.Shared.Context;
 
 public class AppDbContext : DbContext
@@ -83,8 +85,9 @@ public class AppDbContext : DbContext
     public DbSet<AuthCredentialsEntity> AuthCredentials { get; set; }
     
     public DbSet<AuthSessionsEntity> AuthSessions { get; set; }
-    /*
+    
     public DbSet<BidsEntity> Bids { get; set; }
+    /*
     public DbSet<ChatMessagesEntity> ChatMessages { get; set; }
     public DbSet<ChatParticipantsEntity> ChatParticipants { get; set; }
     public DbSet<ChatRoomsEntity> ChatRooms { get; set; }*/
@@ -121,10 +124,11 @@ public class AppDbContext : DbContext
     public DbSet<DriversEntity> Drivers { get; set; }
     /*
     public DbSet<DriversVehiclesEntity> DriversVehicles { get; set; }
+*/
     public DbSet<LoadDetailsEntity> LoadDetails { get; set; }
     public DbSet<LoadImagesEntity> LoadImages { get; set; }
-    public DbSet<LoadStatusHistoryEntity> LoadStatusHistory { get; set; }
-    */
+    public DbSet<LoadStatusHistoryEntity> LoadStatusHistories { get; set; }
+    
     public DbSet<LoadsEntity> Loads { get; set; }
     
     public DbSet<MessageTypeEntity> MessageType { get; set; }

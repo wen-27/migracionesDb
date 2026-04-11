@@ -4,6 +4,7 @@ using DerTransporte.Shared.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace DerTransporte.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260411022056_LoadStatusHistory")]
+    partial class LoadStatusHistory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -124,36 +127,6 @@ namespace DerTransporte.Migrations
                     b.HasIndex("PersonId");
 
                     b.ToTable("auth_sessions", (string)null);
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.Bids.Infrastructure.Entity.BidsEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("char(36)");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("DECIMAL(19,4)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
-
-                    b.Property<DateTime?>("EtaToPickup")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<Guid>("LoadId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Notes")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LoadId");
-
-                    b.ToTable("bids", (string)null);
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.Citiesormunicipalities.Infrastructure.Entity.CitiesormunicipalitiesEntity", b =>
@@ -1412,17 +1385,6 @@ namespace DerTransporte.Migrations
                         .IsRequired();
 
                     b.Navigation("Person");
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.Bids.Infrastructure.Entity.BidsEntity", b =>
-                {
-                    b.HasOne("DerTransporte.Modules.Loads.Infrastructure.Entity.LoadsEntity", "Load")
-                        .WithMany()
-                        .HasForeignKey("LoadId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Load");
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.Citiesormunicipalities.Infrastructure.Entity.CitiesormunicipalitiesEntity", b =>
