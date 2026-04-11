@@ -4,6 +4,7 @@ using DerTransporte.Shared.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace DerTransporte.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260411040106_ChatMessages")]
+    partial class ChatMessages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -497,51 +500,6 @@ namespace DerTransporte.Migrations
                     b.ToTable("customers", (string)null);
                 });
 
-            modelBuilder.Entity("DerTransporte.Modules.Disputes.Infrastructure.Entity.DisputesEntity", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasColumnName("id");
-
-                    b.Property<Guid>("createdby")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("created_by");
-
-                    b.Property<string>("description")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("description");
-
-                    b.Property<string>("evidenceurl")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("evidence_url");
-
-                    b.Property<Guid>("reasoncategoryid")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("reason_category_id");
-
-                    b.Property<Guid>("statusid")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("status_id");
-
-                    b.Property<Guid>("tripid")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("trip_id");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("createdby");
-
-                    b.HasIndex("reasoncategoryid");
-
-                    b.HasIndex("statusid");
-
-                    b.HasIndex("tripid");
-
-                    b.ToTable("disputes", (string)null);
-                });
-
             modelBuilder.Entity("DerTransporte.Modules.DisputesStatus.Infrastructure.Entity.DisputesStatusEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -957,54 +915,6 @@ namespace DerTransporte.Migrations
                         .IsUnique();
 
                     b.ToTable("notification_type", (string)null);
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.Notifications.Infrastructure.Entity.NotificationsEntity", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasColumnName("id");
-
-                    b.Property<string>("body")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("body");
-
-                    b.Property<DateTime>("createdat")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("created_at");
-
-                    b.Property<bool>("isread")
-                        .HasColumnType("tinyint(1)")
-                        .HasColumnName("is_read");
-
-                    b.Property<string>("linkurl")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
-                        .HasColumnName("link_url");
-
-                    b.Property<Guid>("notificationtypeid")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("notification_type_id");
-
-                    b.Property<Guid>("personid")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("person_id");
-
-                    b.Property<string>("title")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
-                        .HasColumnName("title");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("notificationtypeid");
-
-                    b.HasIndex("personid");
-
-                    b.ToTable("notifications", (string)null);
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.PaymentProviders.Infrastructure.Entity.PaymentProvidersEntity", b =>
@@ -2193,41 +2103,6 @@ namespace DerTransporte.Migrations
                     b.Navigation("Person");
                 });
 
-            modelBuilder.Entity("DerTransporte.Modules.Disputes.Infrastructure.Entity.DisputesEntity", b =>
-                {
-                    b.HasOne("DerTransporte.Modules.Persons.Infrastructure.Entity.PersonsEntity", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("createdby")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DerTransporte.Modules.ReasonDisputes.Infrastructure.Entity.ReasonDisputesEntity", "ReasonCategory")
-                        .WithMany()
-                        .HasForeignKey("reasoncategoryid")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DerTransporte.Modules.DisputesStatus.Infrastructure.Entity.DisputesStatusEntity", "Status")
-                        .WithMany()
-                        .HasForeignKey("statusid")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DerTransporte.Modules.Trips.Infrastructure.Entity.TripsEntity", "Trip")
-                        .WithMany()
-                        .HasForeignKey("tripid")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("ReasonCategory");
-
-                    b.Navigation("Status");
-
-                    b.Navigation("Trip");
-                });
-
             modelBuilder.Entity("DerTransporte.Modules.DocumentsCustomers.Infrastructure.Entity.DocumentsCustomersEntity", b =>
                 {
                     b.HasOne("DerTransporte.Modules.Customers.Infrastructure.Entity.CustomersEntity", "Customer")
@@ -2385,25 +2260,6 @@ namespace DerTransporte.Migrations
                     b.Navigation("OriginCity");
 
                     b.Navigation("TypeLoad");
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.Notifications.Infrastructure.Entity.NotificationsEntity", b =>
-                {
-                    b.HasOne("DerTransporte.Modules.NotificationType.Infrastructure.Entity.NotificationTypeEntity", "NotificationType")
-                        .WithMany()
-                        .HasForeignKey("notificationtypeid")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DerTransporte.Modules.Persons.Infrastructure.Entity.PersonsEntity", "Person")
-                        .WithMany()
-                        .HasForeignKey("personid")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("NotificationType");
-
-                    b.Navigation("Person");
                 });
 
             modelBuilder.Entity("DerTransporte.Modules.Payments.Infrastructure.Entity.PaymentsEntity", b =>

@@ -34,19 +34,10 @@ Estas no dependen de nadie, puedes hacerlas en cualquier orden entre ellas:
 ## Bloque 6 — Comercio
 .
 
-credit_transactions    → depende de credit_wallet, transaction_types
-person_plans           → depende de persons, plans, payments
-subscriptions          → depende de persons, subscription_type, subscription_status, payments
-
 
 ## Bloque 7 — Social
 .
-ratings                → depende de trips, persons
-chat_rooms             → depende de loads, trips, status_chat
-chat_participants      → depende de chat_rooms, persons
-chat_messages          → depende de chat_rooms, persons, message_type
-notifications          → depende de persons, notification_type
-disputes               → depende de trips, persons, reason_disputes, disputes_status
+
 audit_log              → depende de persons
 
 

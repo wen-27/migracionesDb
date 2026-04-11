@@ -87,10 +87,10 @@ public class AppDbContext : DbContext
     public DbSet<AuthSessionsEntity> AuthSessions { get; set; }
     
     public DbSet<BidsEntity> Bids { get; set; }
-    /*
+    
     public DbSet<ChatMessagesEntity> ChatMessages { get; set; }
     public DbSet<ChatParticipantsEntity> ChatParticipants { get; set; }
-    public DbSet<ChatRoomsEntity> ChatRooms { get; set; }*/
+    public DbSet<ChatRoomsEntity> ChatRooms { get; set; }
     public DbSet<CitiesormunicipalitiesEntity> Citiesormunicipalities { get; set; }
    /* public DbSet<CityPricingRulesEntity> CityPricingRules { get; set; }
     */
@@ -100,15 +100,15 @@ public class AppDbContext : DbContext
     public DbSet<CompanyVehiclesEntity> CompanyVehicles { get; set; }
     
     public DbSet<CountriesEntity> Countries { get; set; }
-    /*
+    
     public DbSet<CreditTransactionsEntity> CreditTransactions { get; set; }
-    */
+    
     public DbSet<CreditWalletEntity> CreditWallet { get; set; }
     
     public DbSet<CustomersEntity> Customers { get; set; }
-    /*
+    
     public DbSet<DisputesEntity> Disputes { get; set; }
-    */
+    
     public DbSet<DisputesStatusEntity> DisputesStatus { get; set; }
     
     public DbSet<DocumentCategoryEntity> DocumentCategory { get; set; }
@@ -134,17 +134,17 @@ public class AppDbContext : DbContext
     public DbSet<MessageTypeEntity> MessageType { get; set; }
     
     public DbSet<NotificationTypeEntity> NotificationType { get; set; }
-    /*
+    
     public DbSet<NotificationsEntity> Notifications { get; set; }
-    */
+    
     public DbSet<PaymentProvidersEntity> PaymentProviders { get; set; }
     
     public DbSet<PaymentStatusesEntity> PaymentStatuses { get; set; }
     
     public DbSet<PaymentsEntity> Payments { get; set; }
-    /*
+    
     public DbSet<PersonPlansEntity> PersonPlans { get; set; }
-    */
+    
     public DbSet<PersonRolesEntity> PersonRoles { get; set; }
 
     public DbSet<PersonStatusEntity> PersonStatus { get; set; }
@@ -154,8 +154,9 @@ public class AppDbContext : DbContext
     public DbSet<PlansEntity> Plans { get; set; }
     /*
     public DbSet<PriceHistoryEntity> PriceHistory { get; set; }
-    public DbSet<RatingsEntity> Ratings { get; set; }
     */
+    public DbSet<RatingsEntity> Ratings { get; set; }
+    
     public DbSet<ReasonDisputesEntity> ReasonDisputes { get; set; }
     
     public DbSet<RelationTypeEntity> RelationType { get; set; }
@@ -171,9 +172,9 @@ public class AppDbContext : DbContext
     public DbSet<SubscriptionStatusEntity> SubscriptionStatus { get; set; }
     
     public DbSet<SubscriptionTypeEntity> SubscriptionType { get; set; }
-    /*
+    
     public DbSet<SubscriptionsEntity> Subscriptions { get; set; }
-    */
+    
     public DbSet<TransactionTypesEntity> TransactionTypes { get; set; }
     
     public DbSet<TransportCompaniesEntity> TransportCompanies { get; set; }
