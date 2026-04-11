@@ -4,6 +4,7 @@ using DerTransporte.Shared.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace DerTransporte.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260411030526_TravelScale")]
+    partial class TravelScale
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1269,82 +1272,6 @@ namespace DerTransporte.Migrations
                     b.ToTable("travel_scale", (string)null);
                 });
 
-            modelBuilder.Entity("DerTransporte.Modules.TripAssignments.Infrastructure.Entity.TripAssignmentsEntity", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasColumnName("id");
-
-                    b.Property<DateTime>("assignedat")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("assigned_at");
-
-                    b.Property<Guid>("assignmentroleid")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("assignment_role_id");
-
-                    b.Property<bool>("isactive")
-                        .HasColumnType("tinyint(1)")
-                        .HasColumnName("is_active");
-
-                    b.Property<Guid>("personid")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("person_id");
-
-                    b.Property<Guid>("tripid")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("trip_id");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("assignmentroleid");
-
-                    b.HasIndex("personid");
-
-                    b.HasIndex("tripid");
-
-                    b.ToTable("trip_assignments", (string)null);
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.TripStatusHistory.Infrastructure.Entity.TripStatusHistoryEntity", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasColumnName("id");
-
-                    b.Property<DateTime>("createdat")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("created_at");
-
-                    b.Property<string>("locationcoords")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("location_coords");
-
-                    b.Property<string>("notes")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("notes");
-
-                    b.Property<string>("statusname")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("status_name");
-
-                    b.Property<Guid>("tripid")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("trip_id");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("tripid");
-
-                    b.ToTable("trip_status_history", (string)null);
-                });
-
             modelBuilder.Entity("DerTransporte.Modules.Trips.Infrastructure.Entity.TripsEntity", b =>
                 {
                     b.Property<Guid>("id")
@@ -1953,44 +1880,6 @@ namespace DerTransporte.Migrations
                         .IsRequired();
 
                     b.Navigation("City");
-
-                    b.Navigation("Trip");
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.TripAssignments.Infrastructure.Entity.TripAssignmentsEntity", b =>
-                {
-                    b.HasOne("DerTransporte.Modules.AssignmentRole.Infrastructure.Entity.AssignmentRoleEntity", "AssignmentRole")
-                        .WithMany()
-                        .HasForeignKey("assignmentroleid")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DerTransporte.Modules.Persons.Infrastructure.Entity.PersonsEntity", "Person")
-                        .WithMany()
-                        .HasForeignKey("personid")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DerTransporte.Modules.Trips.Infrastructure.Entity.TripsEntity", "Trip")
-                        .WithMany()
-                        .HasForeignKey("tripid")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AssignmentRole");
-
-                    b.Navigation("Person");
-
-                    b.Navigation("Trip");
-                });
-
-            modelBuilder.Entity("DerTransporte.Modules.TripStatusHistory.Infrastructure.Entity.TripStatusHistoryEntity", b =>
-                {
-                    b.HasOne("DerTransporte.Modules.Trips.Infrastructure.Entity.TripsEntity", "Trip")
-                        .WithMany()
-                        .HasForeignKey("tripid")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
 
                     b.Navigation("Trip");
                 });

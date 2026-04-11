@@ -176,11 +176,13 @@ public class AppDbContext : DbContext
     public DbSet<TransactionTypesEntity> TransactionTypes { get; set; }
     
     public DbSet<TransportCompaniesEntity> TransportCompanies { get; set; }
-    /*
+    
     public DbSet<TravelScaleEntity> TravelScale { get; set; }
+    
     public DbSet<TripAssignmentsEntity> TripAssignments { get; set; }
+    
     public DbSet<TripStatusHistoryEntity> TripStatusHistory { get; set; }
-    public DbSet<TripsEntity> Trips { get; set; }*/
+    public DbSet<TripsEntity> Trips { get; set; }
     public DbSet<TypeDocumentsEntity> TypeDocuments { get; set; }
     
     public DbSet<TypeLoadEntity> TypeLoad { get; set; }

@@ -27,18 +27,13 @@ Estas no dependen de nadie, puedes hacerlas en cualquier orden entre ellas:
 
 
 
-bids                   → depende de loads, drivers, vehicles, status_bids
-trips                  → depende de loads, bids
-travel_scale           → depende de trips, citiesormunicipalities
 
 
-trip_status_history    → depende de trips
-trip_assignments       → depende de trips, persons, assignment_role
 
 
 ## Bloque 6 — Comercio
 .
-payments               → depende de credit_wallet, payment_providers, payment_statuses
+
 credit_transactions    → depende de credit_wallet, transaction_types
 person_plans           → depende de persons, plans, payments
 subscriptions          → depende de persons, subscription_type, subscription_status, payments
